@@ -4,15 +4,8 @@
 
 namespace Main {
 
-    using namespace sf;
-
     enum class GameState {
-        BOOT,
-        SPLASH_SCREEN,
-        MAIN_MENU,
-        INSTRUCTIONS,
         GAMEPLAY,
-        CREDITS,
     };
 
     class GameService {
@@ -20,11 +13,11 @@ namespace Main {
         static GameState currentState;
 
         Global::ServiceLocator* serviceLocator;
-        RenderWindow* gameWindow;
+        //sf::RenderWindow* gameWindow;
 
         void Initialize();
         void InitializeVariable();
-        void ShowSplashScreen();
+        //void ShowSplashScreen();
         void Destory();
 
     public:

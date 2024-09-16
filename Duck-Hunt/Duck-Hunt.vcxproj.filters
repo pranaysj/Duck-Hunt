@@ -32,5 +32,17 @@
     <ClInclude Include="Source\Global\ServiceLocator.cpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Header\Graphics\GraphicsService.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Graphics\GraphicsService.cpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Time\TimeService.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Time\TimeService.cpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
