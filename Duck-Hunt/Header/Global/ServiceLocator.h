@@ -1,10 +1,12 @@
 #pragma once
-
+#include"../../Header/Graphics/GraphicsService.h"
 
 namespace Global {
 
     class ServiceLocator {
     private:
+
+        Graphics::GraphicService* graphicsService;
 
         ServiceLocator();
         ~ServiceLocator();
@@ -19,5 +21,6 @@ namespace Global {
         void Update();
         void Render();
 
+        Graphics::GraphicService* GetGraphicsService();
     };
 }

@@ -13,7 +13,7 @@ namespace Main {
         static GameState currentState;
 
         Global::ServiceLocator* serviceLocator;
-        //sf::RenderWindow* gameWindow;
+        sf::RenderWindow* gameWindow;
 
         void Initialize();
         void InitializeVariable();
@@ -22,7 +22,7 @@ namespace Main {
 
     public:
         GameService();
-        virtual ~GameService();
+        /*virtual */~GameService();
 
         void Ignite();
         void Update();

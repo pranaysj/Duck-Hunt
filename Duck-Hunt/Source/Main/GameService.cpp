@@ -14,18 +14,55 @@ namespace Main {
 		Destory();
 	}
 
+	void GameService::Ignite()
+	{
+		serviceLocator = Global::ServiceLocator::GetInstance();
+		Initialize();
+	}
+
+	void GameService::Initialize()
+	{
+		serviceLocator->Initialize();
+		InitializeVariable();
+	}
+
+	void GameService::InitializeVariable()
+	{
+		gameWindow = serviceLocator->GetGraphicsService()->GetGameWindow();
+	}
+
+	void GameService::Update()
+	{
+		serviceLocator->Update();
+	}
+
+	void GameService::Render()
+	{
+		gameWindow->clear();
+		serviceLocator->Render();
+		gameWindow->display();
+	}
+
+	bool GameService::IsRunning()
+	{
+		return serviceLocator->GetGraphicsService()->IsGameWindowOpen();
+	}
+
+	void GameService::SetGameState(GameState _state)
+	{
+	}
+
+	GameState GameService::GetGameState()
+	{
+		return GameState();
+	}
+
 	void GameService::Destory()
 	{
 		
 	}
 
-	void GameService::Initialize()
-	{
-	}
 
-	void GameService::InitializeVariable()
-	{
-	}
 
 
 
