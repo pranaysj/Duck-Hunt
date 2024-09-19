@@ -1,23 +1,19 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include<iostream>
-
 #include "../../Header/Main/GameService.h"
-using namespace Main;
+
 int main() {
 
-    GameService *gameService = new GameService();
+   Main::GameService *gameService = new Main::GameService();
 
-    //gameService->Ignite();
+    gameService->Ignite();
 
-    //while (gameService->IsRunning())
-    //{
+    while (gameService->IsRunning())
+    {
 
-    //    gameService->Update();
-    //    gameService->Render();
-    //}*/
-
-    std::cout << "dvfyucjedw";
+        gameService->Update();
+        gameService->Render();
+    }
 
     return 0;
 

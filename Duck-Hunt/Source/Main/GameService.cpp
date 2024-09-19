@@ -7,6 +7,7 @@ namespace Main {
 	GameService::GameService()
 	{
 		serviceLocator = nullptr;
+		gameWindow = nullptr;
 	}
 
 	GameService::~GameService()
@@ -33,12 +34,13 @@ namespace Main {
 
 	void GameService::Update()
 	{
+		serviceLocator->GetEventService()->ProcessEvent();
 		serviceLocator->Update();
 	}
 
 	void GameService::Render()
 	{
-		gameWindow->clear();
+		gameWindow->clear(sf::Color(1, 116, 178, 255));
 		serviceLocator->Render();
 		gameWindow->display();
 	}
@@ -54,7 +56,7 @@ namespace Main {
 
 	GameState GameService::GetGameState()
 	{
-		return GameState();
+		return currentState;
 	}
 
 	void GameService::Destory()

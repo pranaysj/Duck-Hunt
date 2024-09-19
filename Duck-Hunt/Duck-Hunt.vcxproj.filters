@@ -15,34 +15,90 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Header\Main\GameService.h">
+    <ClCompile Include="Duck-Hunt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy\EnemyController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy\EnemyModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy\EnemyView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Event\EventService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Global\ServiceLocator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Graphics\GraphicsService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Main\GameService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Time\TimeService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy\EnemyService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="x64\Debug\Duck-Hunt.pdb" />
+    <None Include="Duck-Hunt\x64\Debug\vc143.pdb" />
+    <None Include="Duck-Hunt\x64\Debug\Duck-Hunt.tlog\CL.command.1.tlog" />
+    <None Include="Duck-Hunt\x64\Debug\Duck-Hunt.tlog\Cl.items.tlog" />
+    <None Include="Duck-Hunt\x64\Debug\Duck-Hunt.tlog\CL.read.1.tlog" />
+    <None Include="Duck-Hunt\x64\Debug\Duck-Hunt.tlog\CL.write.1.tlog" />
+    <None Include="Duck-Hunt\x64\Debug\Duck-Hunt.tlog\Duck-Hunt.lastbuildstate" />
+    <None Include="Duck-Hunt\x64\Debug\Duck-Hunt.tlog\link.command.1.tlog" />
+    <None Include="Duck-Hunt\x64\Debug\Duck-Hunt.tlog\link.read.1.tlog" />
+    <None Include="Duck-Hunt\x64\Debug\Duck-Hunt.tlog\link.secondary.1.tlog" />
+    <None Include="Duck-Hunt\x64\Debug\Duck-Hunt.tlog\link.write.1.tlog" />
+    <None Include="Duck-Hunt\x64\Debug\Duck-Hunt.exe.recipe" />
+    <None Include="Duck-Hunt\x64\Debug\vc143.idb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Duck-Hunt\x64\Debug\Duck-Hunt.log" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="Duck-Hunt\x64\Debug\Duck-Hunt.obj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Texture\bird.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Header\Enemy\EnemyController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Main\GameService.cpp">
+    <ClInclude Include="Header\Enemy\EnemyModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Enemy\EnemyView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\Event\EventService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Header\Global\ServiceLocator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Global\ServiceLocator.cpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Header\Graphics\GraphicsService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Graphics\GraphicsService.cpp">
+    <ClInclude Include="Header\Main\GameService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Header\Time\TimeService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Time\TimeService.cpp">
+    <ClInclude Include="Header\Enemy\EnemyService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Duck-Hunt.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>
