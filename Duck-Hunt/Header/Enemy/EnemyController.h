@@ -9,25 +9,33 @@ namespace Enemy {
 
 	class EnemyController {
 	protected:
+;
+		const float moveInterval = 2.0f;
+		float moveTimer;
 
-		//float rateOfFire = 2.f; //we want to fire the bullet every 3 seconds
-		//float elapsedFireDuration = 0.f;
-
-		//void UpdateFireTimer();
-		//void ProcessBulletFire();
+		int directionX;
+		int directionY;
 
 		EnemyModel* enemyModel;
 		EnemyView* enemyView;
+		//RenderWindow* gameWindow;
 
-		void Move();
-
-		sf::Vector2f GetRandomInitialPosition();
-		virtual void Destroy();
+		void UpdateMoveTimer();
+		void ProcessMovement();
 
 	public:
 
 		EnemyController();
 		~EnemyController();
+
+		sf::Vector2f EnemyVelocity();
+
+		int GetRandomPlusOrMinus();
+		void Move();
+		void MoveLeft();
+		void MoveRight();
+		void MoveUp();
+		void MoveDown();
 
 		void Initialize();
 		void Update();

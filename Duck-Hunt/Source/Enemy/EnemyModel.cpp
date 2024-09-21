@@ -1,18 +1,14 @@
 #include "../../Header/Enemy/EnemyModel.h"
 
 namespace Enemy {
-	
-	Enemy::EnemyModel::EnemyModel()
-	{
-	}
+	Enemy::EnemyModel::EnemyModel() { }
 
-	EnemyModel::~EnemyModel()
-	{
-	}
+	EnemyModel::~EnemyModel() { }
 
 	void EnemyModel::Initialize()
 	{
-		enemyCurrentPositon = enemyStartRefPositon;
+		moveDirection = MovementDirection::RIGHT;
+		enemyCurrentPositon = enemyStartRefPositon; 
 	}
 
 	Vector2f EnemyModel::GetEnemyPositon()
@@ -25,24 +21,16 @@ namespace Enemy {
 		enemyCurrentPositon = _posiiton;
 	}
 
-	Vector2f EnemyModel::GetRefPositon()
+	MovementDirection EnemyModel::GetMovementDirection()
 	{
-		return enemyStartRefPositon;
-	}
-
-	void EnemyModel::SetRefPositon(Vector2f _posiiton)
-	{
-		enemyStartRefPositon = _posiiton;
-	}
-
-	/*MovementDirection EnemyModel::GetMovementDirection()
-	{
-		return MovementDirection();
+		return moveDirection;
 	}
 
 	void EnemyModel::SetMovementDirection(MovementDirection _direction)
 	{
+		moveDirection = _direction;
+	}
 
-	}*/
+	
 }
 

@@ -7,22 +7,23 @@ namespace Enemy {
 	enum class MovementDirection {
 		LEFT,
 		RIGHT,
+		UP,
 		DOWN,
-		LEFT_DOWN,
-		RIGHT_DOWN,
 	};
 
 	class EnemyModel {
 	private:
+		MovementDirection moveDirection;
 
-		Vector2f enemyStartRefPositon = Vector2f(0.0f, 0.0f);
-
-	public:
+		Vector2f enemyStartRefPositon = Vector2f(960.0f, 540.0f);
 		Vector2f enemyCurrentPositon;
+		
+	public:
+
 		const Vector2f leftMostPosition = Vector2f(10.0f, 50.0f);
 		const Vector2f rightMostPosition = Vector2f(1800.0f, 50.0f);
-
-		//const float verticalTravelDistance = 100.f;
+		const Vector2f topMostPosition = Vector2f(0.0f, 50.0f);
+		const Vector2f bottomtMostPosition = Vector2f(0.0f, 1000.0f);
 
 		EnemyModel();
 		~EnemyModel();
@@ -32,10 +33,8 @@ namespace Enemy {
 		Vector2f GetEnemyPositon();
 		void SetEnemyPositon(Vector2f _posiiton);
 
-		Vector2f GetRefPositon();
-		void SetRefPositon(Vector2f _posiiton);
+		Enemy::MovementDirection GetMovementDirection();
+		void SetMovementDirection(MovementDirection _direction);
 
-		/*MovementDirection GetMovementDirection();
-		void SetMovementDirection(MovementDirection _direction);*/
 	};
 }

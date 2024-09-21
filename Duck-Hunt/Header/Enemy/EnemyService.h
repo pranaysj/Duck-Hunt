@@ -8,15 +8,6 @@ namespace Enemy {
 
 		EnemyController* enemyController;
 
-		const float spawnInterval = 2.0f;
-		float spwanTimer;
-
-		void UpdateSpawnTimer();
-		void ProcessEnemySpawn();
-
-		EnemyController* CreateEnemy();
-
-		void Destory();
 	public:
 		EnemyService();
 		~EnemyService();
@@ -25,8 +16,5 @@ namespace Enemy {
 		void Update();
 		void Render();
 
-		void Reset();
-
-		EnemyController* SpawnEnemy();
 	};
 }
