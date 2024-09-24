@@ -14,7 +14,7 @@ namespace Global {
 	void ServiceLocator::CreateService()
 	{
 		graphicsService = new Graphics::GraphicService();
-		eventService = new Event::EventService();
+		eventService = new Event::EventsService();
 		timeService = new Time::TimeService();
 		enemySevice = new Enemy::EnemyService();
 	}
@@ -61,7 +61,7 @@ namespace Global {
 		return graphicsService;
 	}
 
-	Event::EventService* ServiceLocator::GetEventService()
+	Event::EventsService* ServiceLocator::GetEventService()
 	{
 		return eventService;
 	}

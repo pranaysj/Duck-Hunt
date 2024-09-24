@@ -31,4 +31,9 @@ namespace Enemy {
 	{
 		gameWindow->draw(enemySprite);
 	}
+
+	Sprite* EnemyView::GetEnemySprite()
+	{
+		return &enemySprite;
+	}
 }

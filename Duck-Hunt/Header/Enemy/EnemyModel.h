@@ -22,8 +22,8 @@ namespace Enemy {
 
 		const Vector2f leftMostPosition = Vector2f(10.0f, 50.0f);
 		const Vector2f rightMostPosition = Vector2f(1800.0f, 50.0f);
-		const Vector2f topMostPosition = Vector2f(0.0f, 50.0f);
-		const Vector2f bottomtMostPosition = Vector2f(0.0f, 1000.0f);
+		const Vector2f topMostPosition = Vector2f(0.0f, 10.0f);
+		const Vector2f bottomtMostPosition = Vector2f(0.0f, 800.0f);
 
 		EnemyModel();
 		~EnemyModel();

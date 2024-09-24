@@ -18,7 +18,7 @@ namespace Enemy {
 
 		EnemyModel* enemyModel;
 		EnemyView* enemyView;
-		//RenderWindow* gameWindow;
+		RenderWindow* gameWindow;
 
 		void UpdateMoveTimer();
 		void ProcessMovement();
@@ -42,6 +42,9 @@ namespace Enemy {
 		void Render();
 
 		sf::Vector2f GetEnemyPosition();
+
+		void ProcessButtonInteractions();
+		bool ClickedButton(sf::Sprite* _d, sf::Vector2f _jl);
 
 	};
 }

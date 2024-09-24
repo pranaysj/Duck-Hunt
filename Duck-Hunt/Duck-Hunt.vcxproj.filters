@@ -27,7 +27,7 @@
     <ClCompile Include="Source\Enemy\EnemyView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Event\EventService.cpp">
+    <ClCompile Include="Source\Event\EventsService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Global\ServiceLocator.cpp">
@@ -82,7 +82,7 @@
     <ClInclude Include="Header\Enemy\EnemyView.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Header\Event\EventService.h">
+    <ClInclude Include="Header\Event\EventsService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Header\Global\ServiceLocator.h">

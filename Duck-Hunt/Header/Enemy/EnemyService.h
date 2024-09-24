@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../../Header/Event/EventsService.h"
+
 namespace Enemy {
 	class EnemyController;
 

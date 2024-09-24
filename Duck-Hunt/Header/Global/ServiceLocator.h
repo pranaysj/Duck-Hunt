@@ -1,6 +1,6 @@
 #pragma once
 #include"../../Header/Graphics/GraphicsService.h"
-#include"../../Header/Event/EventService.h"
+#include"../../Header/Event/EventsService.h"
 #include"../../Header/Time/TimeService.h"
 #include"../../Header/Enemy/EnemyService.h"
 
@@ -10,7 +10,7 @@ namespace Global {
     private:
 
         Graphics::GraphicService* graphicsService;
-        Event::EventService* eventService;
+        Event::EventsService* eventService;
         Time::TimeService* timeService;
         Enemy::EnemyService* enemySevice;
 
@@ -28,7 +28,7 @@ namespace Global {
         void Render();
 
         Graphics::GraphicService* GetGraphicsService();
-        Event::EventService* GetEventService();
+        Event::EventsService* GetEventService();
         Time::TimeService* GetTimeService();
         Enemy::EnemyService* GetEnemyService();
     };

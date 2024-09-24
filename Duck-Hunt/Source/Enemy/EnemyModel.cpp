@@ -7,7 +7,7 @@ namespace Enemy {
 
 	void EnemyModel::Initialize()
 	{
-		moveDirection = MovementDirection::RIGHT;
+		moveDirection = MovementDirection::UP;
 		enemyCurrentPositon = enemyStartRefPositon; 
 	}
 
