@@ -7,6 +7,7 @@ namespace Global {
 		graphicsService = nullptr;
 		eventService = nullptr;
 		timeService = nullptr;
+		levelService = nullptr;
 		enemySevice = nullptr;
 		CreateService();
 	}
@@ -16,6 +17,7 @@ namespace Global {
 		graphicsService = new Graphics::GraphicService();
 		eventService = new Event::EventsService();
 		timeService = new Time::TimeService();
+		levelService = new Level::LevelService();
 		enemySevice = new Enemy::EnemyService();
 	}
 
@@ -38,6 +40,7 @@ namespace Global {
 		graphicsService->Initialize();
 		eventService->Initialize();
 		timeService->Initialize();
+		levelService->Initialize();
 		enemySevice->Initialize();
 	}
 
@@ -46,6 +49,7 @@ namespace Global {
 		graphicsService->Update();
 		eventService->Update();
 		timeService->Update();
+		levelService->Update();
 		enemySevice->Update();
 	}
 
@@ -53,6 +57,7 @@ namespace Global {
 	{
 		graphicsService->Render();
 		eventService->Render();
+		levelService->Render();
 		enemySevice->Render();
 	}
 
@@ -72,5 +77,9 @@ namespace Global {
 	Enemy::EnemyService* ServiceLocator::GetEnemyService()
 	{
 		return enemySevice;
+	}
+	Level::LevelService* ServiceLocator::GetLevelService()
+	{
+		return levelService;
 	}
 }

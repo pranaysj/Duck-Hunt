@@ -7,8 +7,11 @@ namespace Enemy {
 
 	void EnemyModel::Initialize()
 	{
-		moveDirection = MovementDirection::UP;
-		enemyCurrentPositon = enemyStartRefPositon; 
+		std::srand(static_cast<unsigned>(std::time(nullptr)));
+
+		moveDirection = MovementDirection::RIGHT;
+		float randomPos = 200 + rand() % 500;
+		enemyCurrentPositon = enemyStartRefPositon + sf::Vector2f(randomPos, 0.0f); 
 	}
 
 	Vector2f EnemyModel::GetEnemyPositon()

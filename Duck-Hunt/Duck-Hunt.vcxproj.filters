@@ -24,6 +24,9 @@
     <ClCompile Include="Source\Enemy\EnemyModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Enemy\EnemyService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Source\Enemy\EnemyView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -36,13 +39,13 @@
     <ClCompile Include="Source\Graphics\GraphicsService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Level\LevelService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Source\Main\GameService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source\Time\TimeService.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Enemy\EnemyService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -79,6 +82,9 @@
     <ClInclude Include="Header\Enemy\EnemyModel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Header\Enemy\EnemyService.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Header\Enemy\EnemyView.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -91,13 +97,13 @@
     <ClInclude Include="Header\Graphics\GraphicsService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Header\Level\LevelService.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Header\Main\GameService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Header\Time\TimeService.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Header\Enemy\EnemyService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

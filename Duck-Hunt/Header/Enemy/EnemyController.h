@@ -18,7 +18,7 @@ namespace Enemy {
 
 		EnemyModel* enemyModel;
 		EnemyView* enemyView;
-		RenderWindow* gameWindow;
+		sf::RenderWindow* gameWindow;
 
 		void UpdateMoveTimer();
 		void ProcessMovement();

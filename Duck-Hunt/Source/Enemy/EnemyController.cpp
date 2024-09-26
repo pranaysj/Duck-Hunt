@@ -45,14 +45,17 @@ namespace Enemy {
 
 	void EnemyController::ProcessMovement()
 	{
+		std::srand(static_cast<unsigned>(std::time(nullptr)));
 		if (moveTimer >= moveInterval) {
 			directionX = GetRandomPlusOrMinus();
 			directionY = GetRandomPlusOrMinus();
+			Move();
 			moveTimer = 0;
 		}
 	}
 
 	int EnemyController::GetRandomPlusOrMinus() {
+
 
 		// Generate a random number
 		int number = rand() % 400 + 100; // Random number between 99 and 199
@@ -72,13 +75,13 @@ namespace Enemy {
 	{
 		switch (enemyModel->GetMovementDirection())
 		{
-		/*case ::Enemy::MovementDirection::LEFT:
+		case ::Enemy::MovementDirection::LEFT:
 			MoveLeft();
 			break;
 
 		case ::Enemy::MovementDirection::RIGHT:
 			MoveRight();
-			break;*/
+			break;
 
 		/*case ::Enemy::MovementDirection::UP:
 			MoveUp();
@@ -93,97 +96,97 @@ namespace Enemy {
 		
 	}
 
-	//void EnemyController::MoveLeft()
-	//{
-	//	sf::Vector2f currentPositoin = enemyModel->GetEnemyPositon();
-
-	//	currentPositoin.x -= Global::ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime() * 300.0f;
-
-	//	//currentPositoin.y += Global::ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime() * directionY;
-
-	//	//std::cout << directionX << " " << directionY << endl;
-
-	//	if (currentPositoin.x <= enemyModel->leftMostPosition.x) {
-
-	//		std::cout << "LEFT" << endl;
-	//		enemyModel->SetMovementDirection(MovementDirection::RIGHT);
-	//		enemyModel->SetEnemyPositon(currentPositoin);
-	//	}
-	//	else {
-	//		enemyModel->SetEnemyPositon(currentPositoin);
-	//	}
-
-	//}
-
-	//void EnemyController::MoveRight()
-	//{
-	//	sf::Vector2f currentPositoin = enemyModel->GetEnemyPositon();
-
-	//	currentPositoin.x += Global::ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime() * 300.0f;
-
-	//	//currentPositoin.y += Global::ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime() * directionY;
-
-	//	//std::cout << directionX << " " << directionY << endl;
-
-	//	if (currentPositoin.x >= enemyModel->rightMostPosition.x) {
-
-	//		std::cout << "RIGHT" << endl;
-	//		enemyModel->SetMovementDirection(MovementDirection::LEFT);
-	//		enemyModel->SetEnemyPositon(currentPositoin);
-
-	//	}
-	//	else {
-	//		enemyModel->SetEnemyPositon(currentPositoin);
-	//	}
-	//}
-
-	void EnemyController::MoveUp()
+	void EnemyController::MoveLeft()
 	{
 		sf::Vector2f currentPositoin = enemyModel->GetEnemyPositon();
 
-		//currentPositoin.x += Global::ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime() * directionX;
+		currentPositoin.x -= Global::ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime() * directionX;
 
-		currentPositoin.y -= Global::ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime() * 300.0f;
-
-		//std::cout << currentPositoin.y  << endl;
-
-		if (currentPositoin.y <= enemyModel->topMostPosition.y) {
-			std::cout << "UP" << endl;
-
-			enemyModel->SetMovementDirection(MovementDirection::DOWN);
-			enemyModel->SetEnemyPositon(currentPositoin);
-		}
-		else {
-			enemyModel->SetEnemyPositon(currentPositoin);
-		}
-	}
-
-	void EnemyController::MoveDown()
-	{
-		sf::Vector2f currentPositoin = enemyModel->GetEnemyPositon();
-
-		//currentPositoin.x += Global::ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime() * directionX;
-
-		currentPositoin.y += Global::ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime() * 300.0f;
+		//currentPositoin.y += Global::ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime() * directionY;
 
 		//std::cout << directionX << " " << directionY << endl;
 
-		if (currentPositoin.y >= enemyModel->bottomtMostPosition.y) {
-			std::cout << "DOWN" << endl;
-			enemyModel->SetMovementDirection(MovementDirection::UP);
+		if (currentPositoin.x <= enemyModel->leftMostPosition.x) {
+
+			std::cout << "LEFT" << endl;
+			enemyModel->SetMovementDirection(MovementDirection::RIGHT);
 			enemyModel->SetEnemyPositon(currentPositoin);
 		}
 		else {
 			enemyModel->SetEnemyPositon(currentPositoin);
 		}
+
 	}
+
+	void EnemyController::MoveRight()
+	{
+		sf::Vector2f currentPositoin = enemyModel->GetEnemyPositon();
+
+		currentPositoin.x += Global::ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime() * directionX;
+
+		//currentPositoin.y += Global::ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime() * directionY;
+
+		//std::cout << directionX << " " << directionY << endl;
+
+		if (currentPositoin.x >= enemyModel->rightMostPosition.x) {
+
+			std::cout << "RIGHT" << endl;
+			enemyModel->SetMovementDirection(MovementDirection::LEFT);
+			enemyModel->SetEnemyPositon(currentPositoin);
+
+		}
+		else {
+			enemyModel->SetEnemyPositon(currentPositoin);
+		}
+	}
+
+	//void EnemyController::MoveUp()
+	//{
+	//	sf::Vector2f currentPositoin = enemyModel->GetEnemyPositon();
+
+	//	//currentPositoin.x += Global::ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime() * directionX;
+
+	//	currentPositoin.y -= Global::ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime() * 300.0f;
+
+	//	//std::cout << currentPositoin.y  << endl;
+
+	//	if (currentPositoin.y <= enemyModel->topMostPosition.y) {
+	//		std::cout << "UP" << endl;
+
+	//		enemyModel->SetMovementDirection(MovementDirection::DOWN);
+	//		enemyModel->SetEnemyPositon(currentPositoin);
+	//	}
+	//	else {
+	//		enemyModel->SetEnemyPositon(currentPositoin);
+	//	}
+	//}
+
+	//void EnemyController::MoveDown()
+	//{
+	//	sf::Vector2f currentPositoin = enemyModel->GetEnemyPositon();
+
+	//	//currentPositoin.x += Global::ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime() * directionX;
+
+	//	currentPositoin.y += Global::ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime() * 300.0f;
+
+	//	//std::cout << directionX << " " << directionY << endl;
+
+	//	if (currentPositoin.y >= enemyModel->bottomtMostPosition.y) {
+	//		std::cout << "DOWN" << endl;
+	//		enemyModel->SetMovementDirection(MovementDirection::UP);
+	//		enemyModel->SetEnemyPositon(currentPositoin);
+	//	}
+	//	else {
+	//		enemyModel->SetEnemyPositon(currentPositoin);
+	//	}
+	//}
 	  
 
 	void EnemyController::Update()
 	{
 		UpdateMoveTimer();
 		ProcessMovement();
-		Move();
+		
 		enemyView->Update();
 		ProcessButtonInteractions();
 	}
@@ -206,6 +209,7 @@ namespace Enemy {
 		if (ClickedButton(enemyView->GetEnemySprite(), mousePositon)) {
 			std::cout << "LMB" << endl;
 		}
+		
 	}
 
 	bool EnemyController::ClickedButton(sf::Sprite* _birdSprite, sf::Vector2f _mousePosition)
