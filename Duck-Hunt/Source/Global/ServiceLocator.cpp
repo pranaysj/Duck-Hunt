@@ -9,6 +9,7 @@ namespace Global {
 		timeService = nullptr;
 		levelService = nullptr;
 		enemySevice = nullptr;
+		playerService = nullptr;
 		CreateService();
 	}
 
@@ -19,6 +20,7 @@ namespace Global {
 		timeService = new Time::TimeService();
 		levelService = new Level::LevelService();
 		enemySevice = new Enemy::EnemyService();
+		playerService = new Player::PlayerService();
 	}
 
 	ServiceLocator::~ServiceLocator()
@@ -42,6 +44,7 @@ namespace Global {
 		timeService->Initialize();
 		levelService->Initialize();
 		enemySevice->Initialize();
+		playerService->Initialize();
 	}
 
 	void ServiceLocator::Update()
@@ -51,6 +54,7 @@ namespace Global {
 		timeService->Update();
 		levelService->Update();
 		enemySevice->Update();
+		playerService->Update();
 	}
 
 	void ServiceLocator::Render()
@@ -81,5 +85,9 @@ namespace Global {
 	Level::LevelService* ServiceLocator::GetLevelService()
 	{
 		return levelService;
+	}
+	Player::PlayerService* ServiceLocator::GetPlayerService()
+	{
+		return playerService;
 	}
 }

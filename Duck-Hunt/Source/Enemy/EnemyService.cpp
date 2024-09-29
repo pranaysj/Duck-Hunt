@@ -58,6 +58,11 @@ namespace Enemy {
 		}
 	}
 
+	std::vector<EnemyController*> EnemyService::GetBirdList()
+	{
+		return birdList;
+	}
+
 
 }
 

@@ -42,10 +42,6 @@ namespace Enemy {
 		void Render();
 
 		sf::Vector2f GetEnemyPosition();
-
-		void ProcessButtonInteractions();
-		bool ClickedOnBird(sf::Sprite* _d, sf::Vector2f _jl);
-		bool ClickedOnVoid(sf::Sprite* _d, sf::Vector2f _jl);
-
+		sf::Sprite* GetEnemySprite();
 	};
 }

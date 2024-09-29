@@ -23,6 +23,7 @@ namespace Enemy {
 		void Render();
 
 		EnemyController* SpawnBird();
+		std::vector<EnemyController*> GetBirdList();
 
 	};
 }

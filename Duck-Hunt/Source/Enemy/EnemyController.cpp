@@ -34,8 +34,15 @@ namespace Enemy {
 		moveTimer = moveInterval;
 
 		gameWindow = Global::ServiceLocator::GetInstance()->GetGraphicsService()->GetGameWindow();
+	}
 
+	void EnemyController::Update()
+	{
+		//UpdateMoveTimer();
+		//ProcessMovement();
 		
+		enemyView->Update();
+		//ProcessButtonInteractions();
 	}
 
 	void EnemyController::UpdateMoveTimer()
@@ -182,14 +189,6 @@ namespace Enemy {
 	//}
 	  
 
-	void EnemyController::Update()
-	{
-		UpdateMoveTimer();
-		ProcessMovement();
-		
-		enemyView->Update();
-		ProcessButtonInteractions();
-	}
 
 	void EnemyController::Render()
 	{
@@ -202,29 +201,9 @@ namespace Enemy {
 
 	}
 
-	void EnemyController::ProcessButtonInteractions()
+	sf::Sprite* EnemyController::GetEnemySprite()
 	{
-		sf::Vector2f mousePositon = sf::Vector2f(sf::Mouse::getPosition(*gameWindow));
-
-		if (ClickedOnBird(enemyView->GetEnemySprite(), mousePositon)) {
-			std::cout << "LMB" << endl;
-		} 
-		if (ClickedOnVoid(enemyView->GetEnemySprite(), mousePositon)) {
-			std::cout << "RMB" << endl;
-		}
-		
-	}
-
-	bool EnemyController::ClickedOnBird(sf::Sprite* _birdSprite, sf::Vector2f _mousePosition)
-	{
-		EventsService* eventService = Global::ServiceLocator::GetInstance()->GetEventService();
-		return eventService->PressedLeftMouseButton() && _birdSprite->getGlobalBounds().contains(_mousePosition);
-	}
-
-	bool EnemyController::ClickedOnVoid(sf::Sprite* _birdSprite, sf::Vector2f _mousePosition)
-	{
-		EventsService* eventService = Global::ServiceLocator::GetInstance()->GetEventService();
-		return eventService->PressedLeftMouseButton() && !_birdSprite->getGlobalBounds().contains(_mousePosition);
+		return enemyView->GetEnemySprite();
 	}
 }
  
