@@ -1,6 +1,7 @@
 #pragma once
 #include<SFML/Graphics.hpp>
 #include"../../Header/Enemy/EnemyService.h"
+#include"../../Header/Level/LevelService.h"
 
 namespace Player {
 
@@ -11,6 +12,7 @@ namespace Player {
 		 
 		sf::RenderWindow* gameWindow;
 		Enemy::EnemyService* enemyService;
+		Level::LevelService* levelService;
 
 	public:
 		PlayerService();
@@ -21,7 +23,7 @@ namespace Player {
 		void Render();
 
 		void ProcessButtonInteractions();
-		bool FireButton(sf::Sprite*, sf::Vector2f);
-		bool MissFireButton(sf::Sprite*, sf::Vector2f);
+		bool Fire(sf::Sprite*, sf::Vector2f);
+		bool MissFire();
 	};
 }

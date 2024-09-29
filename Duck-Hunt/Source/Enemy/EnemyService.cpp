@@ -63,6 +63,11 @@ namespace Enemy {
 		return birdList;
 	}
 
+	EnemyController* EnemyService::GetBirdIndex(int _i)
+	{
+		return birdList[_i];
+	}
+
 
 }
 

@@ -10,6 +10,7 @@ namespace Player {
 	{
 		gameWindow = nullptr;
 		enemyService = nullptr;
+		levelService = nullptr;
 	}
 	PlayerService::~PlayerService()
 	{
@@ -19,6 +20,7 @@ namespace Player {
 	{
 		gameWindow = Global::ServiceLocator::GetInstance()->GetGraphicsService()->GetGameWindow();
 		enemyService = Global::ServiceLocator::GetInstance()->GetEnemyService();
+		levelService = Global::ServiceLocator::GetInstance()->GetLevelService();
 	}
 
 	void PlayerService::Update()
@@ -33,33 +35,47 @@ namespace Player {
 	{
 		sf::Vector2f mousePositon = sf::Vector2f(sf::Mouse::getPosition(*gameWindow));
 
+		bool isBirdClicked = false;
 
 		for (size_t i = 0; i < enemyService->GetBirdList().size(); i++)
 		{
-			Enemy::EnemyController* bird = enemyService->GetBirdList()[i];
+			Enemy::EnemyController* bird = enemyService->GetBirdIndex(i);
 
-			if (FireButton(bird->GetEnemySprite(), mousePositon)) {
+			if (Fire(bird->GetEnemySprite(), mousePositon)) {
+				isBirdClicked = true;
 				std::cout << "Kill bird" << endl;
+
+				int score = levelService->GetScore();;
+				levelService->SetScore(++score);
+				std::cout << "Score : " << levelService->GetScore() << "\n";
+
+				int bullet = levelService->GetBullet();
+				levelService->SetBullet(--bullet);
+				std::cout << "Bullet : " << levelService->GetBullet() << "\n";
+
+
+				break;
 			}
-			if (MissFireButton(bird->GetEnemySprite(), mousePositon)) {
-				std::cout << "Miss" << endl;
-			}
+			
 		}
 
-		/*if (FireButton(Enemy::EnemyService::birdList)) {
-
-		}*/
+		if (!isBirdClicked && MissFire()) {
+			std::cout << "Miss" << "\n";
+		}
 	}
 
-	bool PlayerService::FireButton(sf::Sprite* _birdSprite, sf::Vector2f _mousePosition)
+	bool PlayerService::Fire(sf::Sprite* _birdSprite, sf::Vector2f _mousePosition)
 	{
 		Event::EventsService* eventService = Global::ServiceLocator::GetInstance()->GetEventService();
 		return eventService->PressedLeftMouseButton() && _birdSprite->getGlobalBounds().contains(_mousePosition);
 	}
 
-	bool PlayerService::MissFireButton(sf::Sprite* _birdSprite, sf::Vector2f _mousePosition)
+	bool PlayerService::MissFire()
 	{
 		Event::EventsService* eventService = Global::ServiceLocator::GetInstance()->GetEventService();
-		return eventService->PressedLeftMouseButton() && !_birdSprite->getGlobalBounds().contains(_mousePosition);
+		if (eventService->PressedLeftMouseButton()) {
+			return true;
+		}
+		return false;
 	}
 }
