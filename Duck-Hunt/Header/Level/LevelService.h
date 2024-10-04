@@ -1,5 +1,8 @@
 #pragma once
+
 namespace Level {
+	class EnemyService;
+
 	class LevelService {
 	private:
 		int levels;

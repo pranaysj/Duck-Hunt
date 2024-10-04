@@ -26,5 +26,6 @@ namespace Enemy {
 		std::vector<EnemyController*> GetBirdList();
 		EnemyController* GetBirdIndex(int _i);
 
+
 	};
 }

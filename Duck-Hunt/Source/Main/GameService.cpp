@@ -1,5 +1,6 @@
 #pragma once
 #include"../../Header/Main/GameService.h"
+#include<iostream>
 
 namespace Main {
 	GameState GameService::currentState = GameState::GAMEPLAY;

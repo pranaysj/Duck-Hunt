@@ -29,6 +29,7 @@ namespace Player {
 	}
 	void PlayerService::Render()
 	{
+		//enemyService->Render();
 	}
 
 	void PlayerService::ProcessButtonInteractions()
@@ -54,9 +55,16 @@ namespace Player {
 				std::cout << "Bullet : " << levelService->GetBullet() << "\n";
 
 
+
+				/*if (bird) {
+					std::cout << " - - " << bird << " - - \n";
+					delete bird;
+					std::cout << " - - " << bird << " - - \n";
+				}*/
+				delete bird;
+
 				break;
 			}
-			
 		}
 
 		if (!isBirdClicked && MissFire()) {
@@ -78,4 +86,5 @@ namespace Player {
 		}
 		return false;
 	}
+
 }

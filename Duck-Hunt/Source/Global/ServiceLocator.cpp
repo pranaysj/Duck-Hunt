@@ -63,6 +63,7 @@ namespace Global {
 		eventService->Render();
 		levelService->Render();
 		enemySevice->Render();
+		playerService->Render();
 	}
 
 	Graphics::GraphicService* ServiceLocator::GetGraphicsService()

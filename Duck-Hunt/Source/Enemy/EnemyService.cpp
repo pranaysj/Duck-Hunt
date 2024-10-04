@@ -68,6 +68,5 @@ namespace Enemy {
 		return birdList[_i];
 	}
 
-
 }
 

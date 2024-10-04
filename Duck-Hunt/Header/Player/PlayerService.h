@@ -25,5 +25,6 @@ namespace Player {
 		void ProcessButtonInteractions();
 		bool Fire(sf::Sprite*, sf::Vector2f);
 		bool MissFire();
+
 	};
 }

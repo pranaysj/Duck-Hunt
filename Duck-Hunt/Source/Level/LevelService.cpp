@@ -4,7 +4,6 @@
 
 namespace Level {
 	LevelService::LevelService() {
-		
 	}
 
 	LevelService::~LevelService()
@@ -16,9 +15,10 @@ namespace Level {
 		levels = 1;
 		rounds = 3;
 		wave = GetRound();
-		ducks = 3;
+		ducks = 2;
 		bullets = 3;
 		score = 0;  
+
 
 		std::cout << "level : " << levels << "\n";
 		std::cout << "round : " << rounds << "\n";
@@ -29,6 +29,10 @@ namespace Level {
 	}
 
 	void LevelService::Update() {
+		if (ducks == 0 || bullets == 0) {
+			SetRound(--rounds);
+			SetDuck(++ducks);
+		}
 	}
 
 	void LevelService::Render() {
