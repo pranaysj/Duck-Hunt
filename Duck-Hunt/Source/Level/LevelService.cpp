@@ -15,7 +15,7 @@ namespace Level {
 		levels = 1;
 		rounds = 3;
 		wave = GetRound();
-		ducks = 2;
+		ducks = 6;
 		bullets = 3;
 		score = 0;  
 

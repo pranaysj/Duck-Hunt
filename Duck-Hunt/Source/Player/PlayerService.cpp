@@ -44,24 +44,15 @@ namespace Player {
 
 			if (Fire(bird->GetEnemySprite(), mousePositon)) {
 				isBirdClicked = true;
-				std::cout << "Kill bird" << endl;
+				std::cout << "Kill bird" << "\n";
 
 				int score = levelService->GetScore();;
 				levelService->SetScore(++score);
 				std::cout << "Score : " << levelService->GetScore() << "\n";
 
-				int bullet = levelService->GetBullet();
-				levelService->SetBullet(--bullet);
-				std::cout << "Bullet : " << levelService->GetBullet() << "\n";
-
-
-
-				/*if (bird) {
-					std::cout << " - - " << bird << " - - \n";
-					delete bird;
-					std::cout << " - - " << bird << " - - \n";
-				}*/
-				delete bird;
+				MinusBullet();
+				
+				enemyService->RemoveBird(i);
 
 				break;
 			}
@@ -69,6 +60,7 @@ namespace Player {
 
 		if (!isBirdClicked && MissFire()) {
 			std::cout << "Miss" << "\n";
+			MinusBullet();
 		}
 	}
 
@@ -86,5 +78,14 @@ namespace Player {
 		}
 		return false;
 	}
+
+	void PlayerService::MinusBullet()
+	{
+		int bullet = levelService->GetBullet();
+		levelService->SetBullet(--bullet);
+		std::cout << "Bullet : " << levelService->GetBullet() << "\n\n";
+	}
+
+
 
 }

@@ -24,8 +24,9 @@ namespace Enemy {
 
 		EnemyController* SpawnBird();
 		std::vector<EnemyController*> GetBirdList();
-		EnemyController* GetBirdIndex(int _i);
+		EnemyController* GetBirdIndex(int i);
 
+		void RemoveBird(int i);
 
 	};
 }

@@ -1,6 +1,11 @@
 #pragma once
 #include "../../Header/Enemy/EnemyModel.h"
 #include<iostream>
+#include <cstdlib> // For srand() and rand()
+
+#include<ctime>
+#include<random>
+
 
 namespace Enemy {
 	Enemy::EnemyModel::EnemyModel() { }
@@ -9,12 +14,14 @@ namespace Enemy {
 
 	void EnemyModel::Initialize()
 	{
-		//std::srand(static_cast<unsigned>(std::time(nullptr)));
+		float randomPosX = 100 + rand() % 1600;
+		float randomPosY = 600 + rand() % 200;
 
 		moveDirection = MovementDirection::RIGHT;
-		float randomPos = 200 + rand() % 500;
-		//std::cout << randomPos << "\n";
-		enemyCurrentPositon = enemyStartRefPositon + sf::Vector2f(randomPos, 0.0f); 
+
+		//std::cout << "X : " << randomPosX ;
+		//std::cout << "  Y : " << randomPosY << "\n";
+		enemyCurrentPositon = sf::Vector2f(randomPosX, randomPosY); 
 	}
 
 	Vector2f EnemyModel::GetEnemyPositon()

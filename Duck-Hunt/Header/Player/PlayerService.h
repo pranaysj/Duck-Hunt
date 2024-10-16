@@ -26,5 +26,7 @@ namespace Player {
 		bool Fire(sf::Sprite*, sf::Vector2f);
 		bool MissFire();
 
+		void MinusBullet();
+
 	};
 }

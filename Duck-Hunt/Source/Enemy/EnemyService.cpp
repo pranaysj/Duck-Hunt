@@ -6,12 +6,16 @@
 #include "../../Header/Level/LevelService.h"
 #include<vector>
 #include<iostream>
+#include <cstdlib> // For srand() and rand()
+#include <ctime>
 
 namespace Enemy {
 
 	EnemyService::EnemyService()
 	{
 		//enemyController = new Enemy::EnemyController();
+		std::srand(static_cast<unsigned int>(std::time(nullptr)));
+
 	}
 
 	EnemyService::~EnemyService()
@@ -40,6 +44,9 @@ namespace Enemy {
 		//enemyController->Render();
 		for (size_t i = 0; i < birdList.size(); i++)
 		{
+			if (birdList[i] == nullptr) {
+				continue;
+			}
 			birdList[i]->Render();
 		}
 	}
@@ -66,6 +73,12 @@ namespace Enemy {
 	EnemyController* EnemyService::GetBirdIndex(int _i)
 	{
 		return birdList[_i];
+	}
+
+	void EnemyService::RemoveBird(int i)
+	{
+		//delete(birdList[i]);
+		birdList.erase(birdList.begin() + i);
 	}
 
 }

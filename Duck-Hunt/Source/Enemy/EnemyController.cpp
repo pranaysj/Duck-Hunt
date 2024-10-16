@@ -34,15 +34,18 @@ namespace Enemy {
 		moveTimer = moveInterval;
 
 		gameWindow = Global::ServiceLocator::GetInstance()->GetGraphicsService()->GetGameWindow();
+		std::srand(static_cast<unsigned int>(std::time(nullptr))); // Seed the random number generator
+
 	}
 
 	void EnemyController::Update()
 	{
-		//UpdateMoveTimer();
-		//ProcessMovement();
-		
+		UpdateMoveTimer();
+		ProcessMovement();
+		Move();
 		enemyView->Update();
 		//ProcessButtonInteractions();
+		
 	}
 
 	void EnemyController::UpdateMoveTimer()
@@ -52,55 +55,38 @@ namespace Enemy {
 
 	void EnemyController::ProcessMovement()
 	{
-		std::srand(static_cast<unsigned>(std::time(nullptr)));
+		//std::srand(static_cast<unsigned>(std::time(nullptr)));
 		if (moveTimer >= moveInterval) {
 			directionX = GetRandomPlusOrMinus();
 			directionY = GetRandomPlusOrMinus();
-			//Move();
 			moveTimer = 0;
 		}
 	}
 
 	int EnemyController::GetRandomPlusOrMinus() {
 
-
-		// Generate a random number
-		int number = rand() % 400 + 100; // Random number between 99 and 199
-
-		//std::cout << number << endl;
-
-		// Randomly decide if it should be positive or negative
-		if (rand() % 2 == 0) {
-			return number;  
-		}
-		else {    
-			return -number; 
-		}
+		int number = 150 + rand() % 201; // Random number between 150 and 350
+		return (rand() % 2 == 0) ? number : -number;
 	}
 
 	void EnemyController::Move()
 	{
-		switch (enemyModel->GetMovementDirection())
-		{
-		case ::Enemy::MovementDirection::LEFT:
-			MoveLeft();
-			break;
+		sf::Vector2f currentPositoin = enemyModel->GetEnemyPositon();
+		float deltaTime = Global::ServiceLocator::GetInstance()->GetTimeService()->GetDeltaTime();
 
-		case ::Enemy::MovementDirection::RIGHT:
-			MoveRight();
-			break;
+		currentPositoin.x += deltaTime * directionX;
+		currentPositoin.y += deltaTime * directionY;
 
-		/*case ::Enemy::MovementDirection::UP:
-			MoveUp();
-			break;
-
-		case ::Enemy::MovementDirection::DOWN:
-			MoveDown();
-			break;
-		default:
-			break;*/
+		// Check boundaries and change direction if necessary
+		if (currentPositoin.x <= enemyModel->leftMostPosition.x || currentPositoin.x >= enemyModel->rightMostPosition.x) {
+			directionX = -directionX;
 		}
-		
+
+		if (currentPositoin.y <= enemyModel->topMostPosition.y || currentPositoin.y >= enemyModel->bottomtMostPosition.y) {
+			directionY = -directionY;
+		}
+
+		enemyModel->SetEnemyPositon(currentPositoin);
 	}
 
 	void EnemyController::MoveLeft()
